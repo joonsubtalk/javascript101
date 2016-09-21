@@ -18,4 +18,17 @@ Global Object, 'this', are created in memory followed by the setup of memory spa
 - The entire function and the code inside is set into memory
 - Variable assignment is not set in memory (var a = 'alpha';) Instead, **undefined** is assigned to the variable.
 
+Javascript is: 
+- Single threaded 
+- Synchronous
+
+### Function Invocation and Execution Stack
+*Invocation*: Running a function. In Javascript, you invoke a function by using parenthesis()
+
+Steps
+1. Global Execution Context is created and code is executed
+2. When a function is invoked, a new Execution Context is created then executed into the Execution Stack and the most top is the one currently running
+3. Once function is finished invoking, it's popped off the Execution Stack
+
+
 Readme formatted using github's [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
