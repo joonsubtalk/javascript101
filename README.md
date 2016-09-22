@@ -34,6 +34,7 @@ Steps
 Each execution context will have its own variable environment.
 
 ### Scope Chain
+*Scope*: Where a variable is available in the code. If you know scope, you can find out if the variable is the same or a new copy.
 Every Execution Context has a reference to its *Outer Environment* -> Lexical Environment (where it is in code) (Not to be confused with Execution Stack)
 ```
 function a(){
@@ -47,5 +48,14 @@ function b(){
 var foo = 'bar';
 a();
 ```
+
+### Javascript Engine
+- Execution Context Stack (functions being created and executed)
+- Event Queue (Clicks, HTTP Requests);doesn't run until execution stack is empty
+
+Once the Execution Context Stack is empty, the *Event Queue* is periodically looked at. If something needs to be run in the Queue, then the execution context is added to the stack and run.
+
+## Types and Javascript
+
 
 Readme formatted using github's [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
