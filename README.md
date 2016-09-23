@@ -71,13 +71,13 @@ Infix Notation a+b
 Prefix Notaction +a,b
 Postfix Notaction a,b+
 
-## Precedence and Associativity [link]{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence}
+## Precedence and Associativity [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
 Left to Right vs Right to Left (dependent on associativity);
 
 ## Coercion: Converting a value from one type to another; because Javascript is dynamically typed
 NaN: Javascript's way of saying, I have something that I have no way to convert to a number.
 === : Tests for strict equality, by *not* coercing the values.
-Coercion comparison table [link]{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness}
+Coercion comparison table [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 ```
 function hello(name) {
 	console.log('Hello ' + name);
