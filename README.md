@@ -21,6 +21,7 @@ Global Object, 'this', are created in memory followed by the setup of memory spa
 Javascript is: 
 - Single threaded 
 - Synchronous
+- Dynamic Typing
 
 ### Function Invocation and Execution Stack
 *Invocation*: Running a function. In Javascript, you invoke a function by using parenthesis()
@@ -56,6 +57,42 @@ a();
 Once the Execution Context Stack is empty, the *Event Queue* is periodically looked at. If something needs to be run in the Queue, then the execution context is added to the stack and run.
 
 ## Types and Javascript
+*Dynamic Typing* type figured out during execution
+*Primitive Types*: Represents a single value; not an object
+- undefined
+- null
+- boolean
+- number
+- string
+- symbol (ES6)
+
+### Operators: (special type of functions)
+Infix Notation a+b
+Prefix Notaction +a,b
+Postfix Notaction a,b+
+
+## Precedence and Associativity [link]{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence}
+Left to Right vs Right to Left (dependent on associativity);
+
+## Coercion: Converting a value from one type to another; because Javascript is dynamically typed
+NaN: Javascript's way of saying, I have something that I have no way to convert to a number.
+=== : Tests for strict equality, by *not* coercing the values.
+Coercion comparison table [link]{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness}
+```
+function hello(name) {
+	console.log('Hello ' + name);
+}
+hello(); // Hello undefined
+```
+Simple fix: Use Coercion to your advantage. The || (OR) operator coerces values
+```
+function hello2(name){
+	name = name || '<Your name here>';
+	console.log('Hello '+name);
+}
+hello(); // Hello <Your name here>
+```
+
 
 
 Readme formatted using github's [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
