@@ -93,6 +93,6 @@ function hello2(name){
 hello(); // Hello <Your name here>
 ```
 
-
+## Objects and Functions
 
 Readme formatted using github's [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
