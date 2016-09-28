@@ -94,5 +94,73 @@ hello(); // Hello <Your name here>
 ```
 
 ## Objects and Functions
+An Object can have:
+- Primitive: "Property"
+- Object: "Property"
+- Function: "Method"
+
+```
+// There are better ways... Not the preferred way for creating objects, but for clarity...
+var person = new Object();
+
+// Adding property and methods
+person["firstname"] = "Tony"; // Computed member access
+person["lastname"] = "Tiger";
+
+var firstNameProperty = "firstname";
+
+console.log(person);                    // Returns person Object
+console.log(person[firstNameProperty]); // "Tony"
+
+// dot operator
+console.log(person.firstname)           // "Tony"
+console.log(person.lastname)            // "Tiger"
+
+// There's better ways to set a new address Object, but for now...
+person.address = new Object();
+person.address.street = "123 won st.";
+person.address.city = "NY";
+
+console.log(person.address.city);
+console.log(person["address"]["city"]);
+```
+
+## Object Literals
+```
+// not preferred way...
+var person = new Object();
+
+// short hand:
+var person = {};
+
+// we can add name value pairs to the Object Literal:
+var person = {
+    firstname: "Tony",
+    lastname: "Tiger",
+    address: {
+        street: "123 won st.",
+        city: "NY"
+    }
+}
+
+function greet(person){
+    console.log('Hi ' + person.firstname);
+}
+
+greet(person);      // Hi Tony
+
+// can create Obj on the fly
+greet({
+    firstname: "Foo",
+    lastname: "Bar"
+});
+
+// can add on the fly:
+person.middlename = "Billy";
+```
+
+*Namespace*: A container for variables and functions: typically to keep variables and functions with the same name separate.
+
+
 
 Readme formatted using github's [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
