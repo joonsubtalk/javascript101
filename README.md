@@ -206,5 +206,29 @@ var anonymousGreet = function(){	// This is an anonymouse function.
 Function Statements: hoisted in memory
 Function Expressions: can pass function as a param; because JS uses 1st class function
 
+## By value vs reference
+```
+// by value
+var a = 3;
+var b;
+b = a;
+
+// by reference; all objects -- including functions
+var c = {greet:'sup'};
+var d;
+d=c; //d is pointing to the same object as c is. It's not a copy of object c.
+c.greet = 'hi'; // mutated; d.greet will also be 'hi'
+```
+
+*mutate:* to change something
+*immutable:* can't be changed
+
+The equal operator sets up new memory space (new address)
+```
+var c = {greet:'hello'}; // no longer affects object d since they point to a new memory space.
+```
+
+
+
 
 Readme formatted using github's [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
