@@ -169,7 +169,7 @@ var english = {
 }
 ```
 
-## Functions are Objects: 
+## Functions are Objects:
 
 *First class functions:* Everything you can do with other types you can do with functions.
 e.g. Assign them to variables, pass them around, create them on the fly.
@@ -194,7 +194,7 @@ if (a === 3) { // a===3 is an expression. However, this is an if statement.
 
 //Function statement
 function greet() {		// get's hoisted, but returns nothing.
-	console.log('hi'); 
+	console.log('hi');
 }
 
 // Function Expression	// They are not hoisted. Only the variable is hoisted.
@@ -290,8 +290,8 @@ var c = {
 		m.name = 'updated c object';
 		console.log(m);
 
-		var setName = function(newName) { // This internal function, when Execution context created, actually points to the global object
-			m.name = newName;		// NOTE!!! Actually updates the window global Object
+		var setName = function(newName) {
+			m.name = newName;		// Now it changes the c object's name variable.
 		}
 		setName('Updated again!');
 		console.log(m);
@@ -300,6 +300,31 @@ var c = {
 c.log();	// a function attached to an object, this refers to the object that the method resides in.
 ```
 
+## Arrays
+```
+// arrays are dynamically typed; put whatever you want
+var arr = [1,'tom',false,{name:'John'}, function(name){var greet = 'hello '; console.log(greet+name);}];
+arr[4](arr[3].name); // invoke a function in array
+```
+
+## Arguments & spread
+'arguments' -- contains list of all the values and all the parameters passed to a function.
+**Arguments** : The parameters you pass to a function; Javascript gives you a keyword of the same name which contains them all.
+
+```
+function greet(name, language){
+	//Slight hack to have default parameters
+	language = language || 'en'; // checks if language is undefined (coerced to false), if so, set to 'en';
+	console.log(arguments); // not exactly an array, but kinda like an array.
+
+	// arguments.length can tell you how many arguments sent to greet function
+	// arguments[0] will give you the first value inside arguments "array"
+
+	// In the new version of Javascript: spread. other is an array that hold all the extra params.
+	// function greet(name, language, ...other){}
+}
+
+```
 
 
 Readme formatted using github's [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
