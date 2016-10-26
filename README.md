@@ -11,15 +11,15 @@ When you run Javascript, an **Execution Context** is created in the global conte
 
 In the browser, the **Global Object** is **Window** -- which also happens to be **this**.
 
-In Javascript, **Global** basically means "Not inside a function" 
+In Javascript, **Global** basically means "Not inside a function"
 
 When the Execution Context is created (Creation Phase) before your code is executed line by line:
 Global Object, 'this', are created in memory followed by the setup of memory space for all the variables and functions found in your code - aka "**Hoisting**"
 - The entire function and the code inside is set into memory
 - Variable assignment is not set in memory (var a = 'alpha';) Instead, **undefined** is assigned to the variable.
 
-Javascript is: 
-- Single threaded 
+Javascript is:
+- Single threaded
 - Synchronous
 - Dynamic Typing
 
@@ -160,6 +160,77 @@ person.middlename = "Billy";
 ```
 
 *Namespace*: A container for variables and functions: typically to keep variables and functions with the same name separate.
+
+## This
+Examples of three separate execution contexts, but 'this' still pointing to the same window object
+```
+console.log(this); // 'this' same as the global window object
+
+function a(){
+	console.log(this);
+}
+a(); //this points again to the window object
+
+var b = function() {
+	console.log(this);
+}
+b(); // this still points to the window object
+```
+
+When you just invoke a function, the 'this' variable is still pointing to the global object
+
+```
+var c = {
+	name: 'The c object',
+	log: function(){			// method on an object
+		this.name = 'updated c object';		// 'this' points to c object, therefore c.name will change.
+		console.log(this);
+	}
+}
+c.log();	// a function attached to an object, this refers to the object that the method resides in.
+```
+
+Let's look at an interesting question...
+
+```
+var c = {
+	name: 'The c object',
+	log: function(){
+		this.name = 'updated c object';
+		console.log(this);
+
+		var setName = function(newName) { // This internal function, when Execution context created, actually points to the global object
+			this.name = newName;		// NOTE!!! Actually updates the window global Object
+		}
+		setName('Updated again!');
+		console.log(this);
+	}
+}
+c.log();	// a function attached to an object, this refers to the object that the method resides in.
+```
+
+How do you fix 'this'?
+Remember that Object are passed as reference in Javascript
+
+set this to a variable
+
+```
+var c = {
+	name: 'The c object',
+	log: function(){
+		var m = this;
+		m.name = 'updated c object';
+		console.log(m);
+
+		var setName = function(newName) { // This internal function, when Execution context created, actually points to the global object
+			m.name = newName;		// NOTE!!! Actually updates the window global Object
+		}
+		setName('Updated again!');
+		console.log(m);
+	}
+}
+c.log();	// a function attached to an object, this refers to the object that the method resides in.
+```
 
 
 
