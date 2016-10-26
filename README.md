@@ -159,7 +159,75 @@ greet({
 person.middlename = "Billy";
 ```
 
-*Namespace*: A container for variables and functions: typically to keep variables and functions with the same name separate.
+*Namespace*: A container for variables and functions: typically to keep variables and functions with the same name separate. JS doesn't natively have namespaces. You can fake it by using a container object.
+```
+var korean = {
+	greet: 'anyong'
+}
+var english = {
+	greet: 'hello'
+}
+```
+
+## Functions are Objects: 
+
+*First class functions:* Everything you can do with other types you can do with functions.
+e.g. Assign them to variables, pass them around, create them on the fly.
+
+A Function is simply a special type of an Object.
+- It can have a primitive, Object, Function as a property
+- In addition, it can have a name (optional); Else, anonymous
+- It has a Code property which can be invoked using '()'
+
+*Expression:* Unit of code that results in a value; it doesn't have to save to a variable.
+*Statement*: just does work
+```
+//Expression
+var a;
+a = 3;	// a unit of code;
+1+2; 	// a valid expression; Did not set anything to memory, but returned a value
+
+//Statement
+if (a === 3) { // a===3 is an expression. However, this is an if statement.
+
+}
+
+//Function statement
+function greet() {		// get's hoisted, but returns nothing.
+	console.log('hi'); 
+}
+
+// Function Expression	// They are not hoisted. Only the variable is hoisted.
+var anonymousGreet = function(){	// This is an anonymouse function.
+	console.log('hi');
+}
+```
+
+Function Statements: hoisted in memory
+Function Expressions: can pass function as a param; because JS uses 1st class function
+
+## By value vs reference
+```
+// by value
+var a = 3;
+var b;
+b = a;
+
+// by reference; all objects -- including functions
+var c = {greet:'sup'};
+var d;
+d=c; //d is pointing to the same object as c is. It's not a copy of object c.
+c.greet = 'hi'; // mutated; d.greet will also be 'hi'
+```
+
+*mutate:* to change something
+*immutable:* can't be changed
+
+The equal operator sets up new memory space (new address)
+```
+var c = {greet:'hello'}; // no longer affects object d since they point to a new memory space.
+```
+
 
 ## This
 Examples of three separate execution contexts, but 'this' still pointing to the same window object
