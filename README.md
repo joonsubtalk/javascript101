@@ -326,5 +326,39 @@ function greet(name, language){
 
 ```
 
+## Immediately Invoked Function Expression AKA IIFE
+recall that:
+```
+// statement
+function greet() {
+	return "hello";
+}
+//expression
+var greeter = function(){
+	return "hello";
+}
+
+// IIFE
+var helloer = function(){
+	return "hi!";
+}();
+// console.log(helloer) // returns "hi!"
+
+// Error -- expects a function statement
+function(){
+	return "hello";
+}
+
+// parenthesis is an operator; only to be used with expressions
+(function(){
+	return "hello";
+}); // valid
+
+// we can do something interesting now...
+(function(name){
+	console.log("hello " + name);
+}('john')); // valid
+
+```
 
 Readme formatted using github's [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
