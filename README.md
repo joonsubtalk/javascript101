@@ -397,4 +397,35 @@ fs[1]();
 fs[2]();
 ```
 
+Function Factories takes advantage of closure to set a parameter value used inside a function that's returned.
+
+Closure and Callbacks
+```
+function sayHiLater(){
+	var greeting = 'Hi!';
+	setTimeout(function(){
+		console.log(greeting);
+	},2000)
+}
+```
+
+**Callback Function**: A function you give to another function, to be run when the other function is finished.
+So the function you call (i.e. invoke), 'calls back' by calling the function you gave it when it finishes.
+
+```
+function callMeWhenDone(callback){
+	var a = "do something ";
+	var b = 200;
+	
+	callback();
+}
+
+callMeWhenDone(
+	function(){
+		console.log("I'm a callback");
+	}
+);
+```
+
+
 Readme formatted using github's [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
