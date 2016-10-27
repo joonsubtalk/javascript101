@@ -357,8 +357,44 @@ function(){
 // we can do something interesting now...
 (function(name){
 	console.log("hello " + name);
-}('john')); // valid
+}('john')); // IIFE to a valid Function expression Immediately invoked.
 
+```
+
+## Closures
+Remember lexical scoping! Remember functions have access to outer variables!
+```
+function greet(whatToSay){
+	return function(name){
+		console.log(whatToSay + ' ' + name);
+	}
+}
+
+greet('Hi')('Tony');
+
+var sayHi = greet('Hi');
+sayHi('Tony');
+```
+
+Typical closure problem:
+```
+function build(){
+ var arr= [];
+ for (var i = 0; i < 3; i++){
+  arr.push(
+   function() {
+     console.log(i);
+   }
+  )
+ }
+  return arr;
+}
+
+
+var fs = build();
+fs[0]();
+fs[1]();
+fs[2]();
 ```
 
 Readme formatted using github's [markdown](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
